@@ -1,0 +1,3821 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\begin_preamble
+\usepackage{listings}
+
+\usepackage{a4wide}
+\usepackage{balance}
+
+\newcommand{\NSP}{\! \! \! \! \! \! \! \! }
+\newcommand{\BNSP}{\NSP \NSP \NSP \NSP}
+\newcommand{\DS}{\displaystyle}
+\newcommand{\CL}{\centerline}
+
+\usepackage{float}
+\floatname{algorithm}{Equation Box}
+%\renewcommand{\listofalgorithms}{ 
+ % \begingroup 
+  %  \listof{algorithm}{List of Equation Boxes} 
+ % \endgroup 
+%}
+
+
+\date{}
+% HEADERS
+%\usepackage{fancyhdr}
+%\lhead{\small{bfm-community.eu}}
+%\rhead{\small{all rights reserved}} 
+
+\usepackage{alltt}              %%  alltt for namelist
+\usepackage{verbatim}   %%  alltt for namelist
+% namelists
+\newcommand{\NML} [1] {
+\begin{alltt}
+{\tiny \verbatiminput{./Namelists/#1.nml}}
+\end{alltt}
+  \vspace{-10pt}
+}
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "times" "default"
+\font_sans "helvet" "default"
+\font_typewriter "cmtl" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 2
+\papersides 2
+\paperpagestyle headings
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+onecolumn 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../logos/BFM-Consortium_members.png
+	lyxscale 15
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0cm"
+width "15cm"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size giant
+Coupling BFM with ocean models:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size largest
+the NEMO model V4.2 
+\size default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\size largest
+
+\begin_inset Newline newline
+\end_inset
+
+(Nucleus for the European Modelling of the Ocean)
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\emph on
+T.
+ Lovato and M.
+ Butenschön
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Release 2.0, February 2023
+\begin_inset Newline newline
+\end_inset
+
+—– BFM Report series N.
+ 2 —–
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+
+\begin_inset CommandInset href
+LatexCommand href
+target "http://bfm-community.eu"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+bfm_st@cmcc.it
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0cm"
+width "15cm"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 4cm
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 8cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../logos/BFM_Full_logo.png
+	lyxscale 40
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+The authors wish to thank Christian Eth
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+ and all the members of the NEMO System Team for their collaboration during
+ the implementation of the coupling.
+ 
+\begin_inset Newline newline
+\end_inset
+
+This document should be cited as:
+\begin_inset Newline newline
+\end_inset
+
+Lovato T., and Butenschön M.
+ (2023).
+ Coupling BFM with Ocean models: the NEMO model V4.2 (Nucleus for the European
+ Modelling of the Ocean).
+ BFM Report series N.
+ 2, Release 2.0, February 2023, Bologna, Italy, http://bfm-community.eu, pp.
+ 30
+\end_layout
+
+\begin_layout Address
+
+\size footnotesize
+\begin_inset VSpace 13cm
+\end_inset
+
+Copyright 2023, The BFM System Team.
+ This work is licensed under the Creative Commons Attribution-Noncommercial-No
+ Derivative Works 2.5 License.
+ To view a copy of this license, visit 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://creativecommons.org/licenses/by-nc-nd/2.5/"
+
+\end_inset
+
+ or send a letter to Creative Commons, 171 Second Street, Suite 300, San
+ Francisco, California, 94105, USA.
+
+\size default
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Introduction
+\end_layout
+
+\begin_layout Section
+Eulerian coupling
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Eulerian-coupling"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This introduction presents the major theoretical assumptions for the Eulerian
+ coupling between a general circulation model of the ocean (NEMO, Nucleus
+ for the European Modelling of the Ocean, 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://nemo-ocean.eu"
+
+\end_inset
+
+) and a biogeochemical model of the pelagic system (BFM, Biogeochemical
+ Flux Model, 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://bfm-community.eu"
+
+\end_inset
+
+).
+ The concepts presented in this section and partly in the more technical
+ Chap.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Technical-coupling-NEMO"
+
+\end_inset
+
+ are to be considered valid for any coupling of the BFM with an ocean general
+ circulation model (OGCM).
+\end_layout
+
+\begin_layout Standard
+The BFM is designed as a set of ordinary differential equations that resolve
+ the fluxes of biogeochemical constituents in the marine environment.
+ By construction, it assumes that biological and chemical variables are
+ homogeneously distributed in the infinitesimal water volume, which is clearly
+ a poor approximation for living cells and particulate organic matter in
+ general.
+ From a theoretical point of view, the biological components of the marine
+ environment have always been casted in the Eulerian representation, using
+ dissolved nutrients and unicellular plankton as models because they are
+ sufficiently small and passive to be considered 
+\begin_inset Quotes eld
+\end_inset
+
+parts
+\begin_inset Quotes erd
+\end_inset
+
+ of the fluid.
+ This theoretical formulation has been proposed initially by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "obrien73"
+literal "true"
+
+\end_inset
+
+, then 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Robinson1997"
+literal "true"
+
+\end_inset
+
+ and summarized in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "HofmanLascara1998"
+literal "true"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "vichi07_part1"
+literal "true"
+
+\end_inset
+
+.
+ It must be noted that all these formulations either neglected the role
+ of turbulent diffusive processes or assumed that turbulent fluctuations
+ in the biological fields are affected by the same Reynolds averaging used
+ for the fluid properties.
+\end_layout
+
+\begin_layout Standard
+We use the conceptual framework proposed by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "vichi07_part1"
+literal "true"
+
+\end_inset
+
+, and we acknowledge that a similar theoretical formulation was previously
+ proposed by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Robinson1997"
+literal "true"
+
+\end_inset
+
+, who also provided a mathematical derivation of the analytical solutions.
+ Passively transported variables can be basically described using concentrations
+ of functional living and non-living components (the chemical functional
+ families proposed by 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "BFM-manual"
+literal "true"
+
+\end_inset
+
+), and we write the conservation equation for an infinitesimal volume of
+ fluid containing the concentration 
+\begin_inset Formula $C$
+\end_inset
+
+ for a BFM variable.
+ We apply the continuum hypothesis that the value of 
+\begin_inset Formula $C$
+\end_inset
+
+ is a continuous function of space and time.
+ The basic equation in a fluid is thus:
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial C}{\partial t}=-\vec{\mathbf{\nabla}}\cdot\vec{F},\label{eq:total_potential}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\vec{F}$
+\end_inset
+
+ is the generalized flux of 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ through and within the basic infinitesimal element of mass of the fluid.
+ By making the continuum approximation valid for biogeochemistry, we can
+ further separate the flux in a physical part and a biological reaction
+ term 
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial C}{\partial t}=-\vec{\mathbf{\nabla}}\cdot\vec{F}_{phys}-\vec{\mathbf{\nabla}}\cdot\vec{F}_{bio}.\label{eq:phys_bio_potential}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The second term on the right hand side of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:phys_bio_potential"
+
+\end_inset
+
+) cannot be measured directly because living cells have finite dimensions,
+ and therefore we assume that it can be approximated with the following
+ eulerian approach:
+\begin_inset Formula 
+\begin{equation}
+\vec{\mathbf{\nabla}}\cdot\vec{F}_{bio}=-w_{B}\frac{\partial C}{\partial z}+\left.\frac{\partial C}{\partial t}\right|_{bio}.\label{eq:div_bio}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Both terms in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ADR"
+
+\end_inset
+
+) represent the biogeochemical divergence flux and parameterize the sinking
+ of biological particulate matter and the local time rate of change due
+ to biogeochemical transformation processes.
+ The sinking velocity 
+\begin_inset Formula $w_{B}$
+\end_inset
+
+ is introduced for those state variables that have a mass-related vertical
+ velocity other than the fluid vertical velocity.
+\end_layout
+
+\begin_layout Standard
+This approximation brings us to the typical form of an advection-diffusion-react
+ion equation in an incompressible fluid:
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial C}{\partial t}=-\mathbf{u}\cdot\nabla C+\nabla_{H}\cdot\left(A_{H}\nabla_{H}C\right)+\frac{\partial}{\partial z}A_{V}\frac{\partial C}{\partial z}-w_{B}\frac{\partial C}{\partial z}+\left.\frac{\partial C}{\partial t}\right|_{bio}\label{eq:ADR}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{u}\equiv(u,v,w)$
+\end_inset
+
+ is the three-dimensional current velocity and 
+\begin_inset Formula $\left(A_{H},A_{V}\right)$
+\end_inset
+
+ are the horizontal and vertical turbulent diffusivity coefficient for tracers.
+ To highlight the coupling between physical and biogeochemical processes,
+ we may rewrite this equation in component forms, also indicating the ocean
+ variables that are resolved by the OGCM and needed for the reaction term
+ 
+\begin_inset Formula $R$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial C}{\partial t}+u\frac{\partial C}{\partial x}+v\frac{\partial C}{\partial y}+w\frac{\partial C}{\partial z}=\nabla_{H}\cdot\left(A_{H}\nabla_{H}C\right)+\frac{\partial}{\partial z}A_{V}\frac{\partial C}{\partial z}-w_{B}\frac{\partial C}{\partial z}+R\left(T,\,S,\,W,\,E\right)\label{eq:ADR-explicit}
+\end{equation}
+
+\end_inset
+
+where the scalar symbols in the last term indicate water temperature (T),
+ salinity (S), the intensity of wind (W), and shortwave irradiance (E).
+\end_layout
+
+\begin_layout Section
+Information flow and numerical integration
+\end_layout
+
+\begin_layout Standard
+Equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ADR"
+
+\end_inset
+
+) is one approximated form of a primitive equation for biogeochemical variables
+ in the ocean and requires the knowledge of ocean physical variables to
+ be solved.
+ The time evolution of physical variables is carried out by the OGCM and
+ transferred to the biogeochemical model.
+ A typical, generic scheme of the information flow between the two models
+ is presented in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:information-flow"
+
+\end_inset
+
+.
+ The physical variables are used to compute the advection, diffusion and
+ reaction terms in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ADR"
+
+\end_inset
+
+) and then combined to obtain the forward in time biogeochemical states.
+ This equation cannot be solved analytically but requires a numerical integratio
+n, just as it happens for temperature and salinity on OGCM.
+ Usually, the same kind of numerical scheme is used.
+ The sensitivity of the BFM to integration schemes has been tested by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "butenschoen12"
+literal "true"
+
+\end_inset
+
+, and it was concluded that the source splitting method is more accurate.
+ Currently, NEMO uses a time integration based on source splitting with
+ a leapfrog scheme for active tracers 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "madec_gurvan_2022_6334656"
+literal "true"
+
+\end_inset
+
+; in the case of BFM-NEMO the final integration is carried out with a simple
+ Euler-forward step, but still with source splitting .
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/scheme_coupling.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:information-flow"
+
+\end_inset
+
+Scheme of the information flow between the ocean model and the biogeochemical
+ state variables.
+ The blue boxes indicate that the computation is carried out directly by
+ the OGCM or using modified routines belonging to the OGCM.
+ Integrator is a generic name for the solver used to advance in time the
+ solution of the coupled physical-biogeochemical system.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Technical coupling with NEMO
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Technical-coupling-NEMO"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Integration of BFM in the NEMO-TOP interface
+\end_layout
+
+\begin_layout Standard
+BFM and NEMO are separated codes that are maintained by different groups
+ of developers.
+ The coupled configuration is therefore the result of a joint compilation
+ of the two codes, where the BFM is a modular external library of NEMO.
+ This document assumes that you are already familiar with NEMO and it does
+ not substitute the NEMO documentation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "madec_gurvan_2022_6334656"
+literal "true"
+
+\end_inset
+
+ which should be used as reference for the specific namelist parameters
+ and code macros.
+\end_layout
+
+\begin_layout Standard
+NEMO contains an interface for the computation of biogeochemical tracers
+ named TOP (from the French 
+\emph on
+Traceurs Oceanographique Passives
+\emph default
+) which is described in the reference manual 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "nemo_top_1471700"
+literal "false"
+
+\end_inset
+
+.
+ This interface allows to use all the same numerical schemes available for
+ the active tracers to solve the advective and diffusive processes, as well
+ as to prescribe surface, bottom and lateral boundary conditions.
+ This is a crucial requirement for the inclusion of BFM in any OGCM, and
+ it is possible because all NEMO routines have been written with explicit
+ input-output arguments to pass either temperature or salinity or biogeochemical
+ tracers.
+\end_layout
+
+\begin_layout Standard
+The BFM has been integrated in this framework with the addition of a seamless
+ software layer that uses the generic tracer interface called MY_TRC (see
+ Sect.
+ 2.4.5 of 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "nemo_top_1471700"
+literal "false"
+
+\end_inset
+
+).
+ In addition, the BFM source code provides all the ancillary routines that
+ are required for the coupling in the directory 
+\family typewriter
+$BFMDIR/src/nemo
+\family default
+.
+ When a NEMO configuration containing the BFM is compiled, this generic
+ tracer interface must be activated and the external directory containing
+ the BFM coupling interface is included, substituting some of the standard
+ routines contained in TOP.
+ The compilation of the coupled system is done with the BFM configuration
+ script detailed in Sec.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Configuring-BFM-NEMO"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+When the generic tracer interface MY_TRC is activated by means of the logical
+ parameter 
+\family typewriter
+ln_my_trc=.true.
+
+\family default
+ (within the namelist 
+\family typewriter
+namelist_top_cfg)
+\family default
+ the BFM will be plugged into the NEMO workflow during the initialization
+ and stepping phases.
+ It important to underline that BFM uses the TOP infrastructure to produce
+ both output and restart files.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Code flow chart
+\end_layout
+
+\begin_layout Standard
+In the present implementation, the BFM memory is allocated as a one dimensional
+ array corresponding to the vertical water column and the biogeochemical
+ computations are iterated over the horizontal dimensions of the 3D domain,
+ namely along 
+\family typewriter
+X
+\family default
+ and 
+\family typewriter
+Y
+\family default
+ (see Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Remapping"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename ../manual/Figures/memory-variable-mapping.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Remapping"
+
+\end_inset
+
+Layout of the main memory array for the pelagic variables and schematic
+ of the column-wise integration of BFM over the three-dimensional ocean
+ grid (see BFM core manual for a description of the code naming).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The flow of information between NEMO and the BFM is presented using workflow
+ diagrams that show the main caller of the function of interest and the
+ tree of principal subroutine calls.
+ By convention, the routines of NEMO are indicated with blue boxes while
+ the BFM routines are in green.
+ Routines indicated with red boxes originally belong to NEMO TOP interface
+ but are substituted by the ones provided in the BFM directory (
+\family typewriter
+$BFMDIR/src/nemo
+\family default
+).
+ The coupling structure uses as a base the modules and subroutines of TOP
+ generalized coupling interface MY_TRC.
+\end_layout
+
+\begin_layout Standard
+A scheme of the NEMO initialization of passive tracers is shown in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:workflow_init"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, where a specific routine was designed to handle the setup ot the TOP interface
+ with BFM state variables, diagnostics and grid structure (
+\family typewriter
+trc_nam_bfm
+\family default
+).
+ In this function, the information on the state variables initialization
+ and boundary conditions defined in the namelist 
+\family typewriter
+bfm_init_nml
+\family default
+ (read by 
+\family typewriter
+init_var_bfm
+\family default
+) are used to fill the TOP data structures of passive tracers 
+\family typewriter
+sn_tracer
+\family default
+.
+ In here the time integration is forced to be always perfomed using the
+ Euler Forward method (
+\family typewriter
+ln_top_euler=.true.
+
+\family default
+ is set by the code).
+ 
+\end_layout
+
+\begin_layout Standard
+Subsequently the initial state of tracers is filled with uniform or analytical
+ vertical profiles in 
+\family typewriter
+trc_init_my_trc
+\family default
+ while 3D field form external input files are read in 
+\family typewriter
+trc_dta_ini
+\family default
+ according to input of namelist 
+\family typewriter
+namtrc_dta
+\family default
+ contained in 
+\family typewriter
+namelist_top_cfg
+\family default
+.
+ If needed restart conditions are then read overriding previous settings
+ and the boundary forcing are initialized.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/workflow_init.png
+	lyxscale 80
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:workflow_init"
+
+\end_inset
+
+Workflow of the model initialization within TOP using the MY_TRC routines.
+ In 
+\family typewriter
+$BFMDIR/src/nemo
+\family default
+ are contained the files 
+\family typewriter
+par_my_trc.F90
+\family default
+,
+\family typewriter
+ trc_nam.F90
+\family default
+, 
+\family typewriter
+trcnam_bfm.F90
+\family default
+,
+\family typewriter
+ trcini_my_trc.F90
+\family default
+, and 
+\family typewriter
+trcrst.F90
+\family default
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The time marching computation in NEMO are performed in the 
+\family typewriter
+stp
+\family default
+ routine and the passive tracers are specifically addressed in 
+\family typewriter
+trc_stp
+\family default
+ of TOP interface (see Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:workflow_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ The computation of biogeochemical rates is carried out in 
+\family typewriter
+trc_sms_my_trc
+\family default
+, with the computation of relevant biogeochemical forcings (
+\family typewriter
+trc_sms_my_trc
+\family default
+) and the subsequent solution of the BFM core processes.
+ The loop over X and Y gridpoints wraps the subroutines 
+\family typewriter
+environmental_conditions 
+\family default
+and 
+\family typewriter
+execute_bfm
+\family default
+ involved in the extraction of both physical and biogeochemical quantities
+ along the vertical water column of the 3D domain, the integration of BFM
+ equations (
+\family typewriter
+EcologyDynamics
+\family default
+), and the transfer of computed tendencies back in the main TOP arrays (the
+ same procedure appliea to diagnostic fields).
+ Finally, the tendency of the pelagic state variables undergoing to vertical
+ sinking is updated (
+\family typewriter
+trc_set
+\family default
+).
+ The transport of BFM state variables is operated by 
+\family typewriter
+trc_trp
+\family default
+ with the advection scheme defined in 
+\family typewriter
+namelist_top_cfg
+\family default
+, while the lateral diffusion is the same used for NEMO active tracers.
+ The data output (
+\family typewriter
+trc_wri_my_trc
+\family default
+) and restart file creation (
+\family typewriter
+trc_rst_write
+\family default
+) where adatapted to handle the specific structure of each component of
+ the BFM (pelagic, benthic, and seaice).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/workflow_step.png
+	lyxscale 80
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:workflow_step"
+
+\end_inset
+
+Workflow of the model time marching sequence within TOP interface.
+ In 
+\family typewriter
+$BFMDIR/src/nemo
+\family default
+ are contained the files 
+\family typewriter
+trc_sms_my_trc.F90
+\family default
+, 
+\family typewriter
+trcset.F90
+\family default
+, 
+\family typewriter
+trc_wri_my_trc.F90
+\family default
+, and 
+\family typewriter
+trc_rst.F90
+\family default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+BFM and TOP parameters
+\end_layout
+
+\begin_layout Standard
+The biogeochemical processes of the BFM are controlled by their own namelist
+ files as described in the BFM core manual 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "BFM-manual"
+literal "false"
+
+\end_inset
+
+, but when run in coupled configuration there are some additional parameters
+ derived from the NEMO TOP namelist that must be adjusted.
+ 
+\end_layout
+
+\begin_layout Standard
+Since NEMO v4+, the setup of passive tracer interface occurs completely
+ trough the namelist 
+\family typewriter
+namtrc
+\family default
+, but only a minimal setting is here necessary to activate the MY_TRC submodule
+ (see the following example) and most of the parameters are then internally
+ re-defined using BFM settings when calling 
+\family typewriter
+trc_nam_bfm
+\family default
+ (see Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:workflow_init"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)
+\begin_inset listings
+lstparams "basicstyle={\tiny\ttfamily},breaklines=true,language=Fortran"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+!NAMELIST namtrc          !   tracers definition
+\end_layout
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+&namtrc     
+\end_layout
+
+\begin_layout Plain Layout
+
+   jp_bgc        =  1          !  Number of passive tracers of the BGC model
+\end_layout
+
+\begin_layout Plain Layout
+
+   ln_my_trc     =  .true.
+     !  Run MY_TRC BGC model
+\end_layout
+
+\begin_layout Plain Layout
+
+!
+\end_layout
+
+\begin_layout Plain Layout
+
+!                !    name   !           title of the field            !
+   units    ! initial data from file or not !
+\end_layout
+
+\begin_layout Plain Layout
+
+   sn_tracer(1)   = 'DUMMY   ' , 'Dummy tracer      '                 ,
+  'dummy-units' ,  .false.
+\end_layout
+
+\begin_layout Plain Layout
+
+/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Particularly, this occurs for the prescription of initial and boundary condition
+s because both rely on the NEMO facilities for reading and interpolating
+ external files.
+ The file 
+\family typewriter
+namelist_top_cfg
+\family default
+ generated by the BFM configuration script (see Sec.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Configuring-BFM-NEMO"
+
+\end_inset
+
+) contains the namelist 
+\family typewriter
+namtrc_dta
+\family default
+ which gives the information on the initial data values for the BFM variables:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\tiny\ttfamily},breaklines=true,language=Fortran"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+!NAMELIST namtrc_dta
+\end_layout
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+!   Initialisation from data input file
+\end_layout
+
+\begin_layout Plain Layout
+
+!   for each BFM variable set the structure sn_trcdta(VARNAME)
+\end_layout
+
+\begin_layout Plain Layout
+
+!   and the conversion factor rn_trfac(VARNAME)
+\end_layout
+
+\begin_layout Plain Layout
+
+!   Specifications for fld_read:
+\end_layout
+
+\begin_layout Plain Layout
+
+!   !file name!frequency (hr)!variable!time interp.!clim !'yearly' or !weights
+  !rotation!land/sea
+\end_layout
+
+\begin_layout Plain Layout
+
+!   !         !(if <0 mon)   !  name  !  (logical) !(T/F)! 'monthly'  !filename
+ ! pairing! mask
+\end_layout
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+&namtrc_dta
+\end_layout
+
+\begin_layout Plain Layout
+
+ sn_trcdta(O2o)  = 'data_1m_O_nomask', -12  ,  'O2'  ,  .false.
+ , .true.
+ , 'yearly'  , '', '', ''
+\end_layout
+
+\begin_layout Plain Layout
+
+ sn_trcdta(N1p)  = 'data_1m_P_nomask', -1   ,  'PO4' ,  .false.
+ , .true.
+ , 'yearly'  , '', '', ''
+\end_layout
+
+\begin_layout Plain Layout
+
+ rn_trfac(O2o)   =   22.4  !  conversion factor from ml/l to mmol m3 (1 mol
+ O2 = 22.4 l)
+\end_layout
+
+\begin_layout Plain Layout
+
+ rn_trfac(N1p)   =   1.0   !  no conversion
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+ cn_dir        =  './'      !  root directory for the location of the data
+ files
+\end_layout
+
+\begin_layout Plain Layout
+
+/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The parameters of the
+\family typewriter
+ fld_read
+\family default
+ structure sn_trcdta allow to specify the name of the file, the frequency
+ of input data and the interpolation weights.
+ Note that the interpolation is still two-dimensional only and the input
+ data must already be on the vertical grid of the model.
+ It is possible to give a conversion factor that may also be used to increase
+ artificially the initial values of a uniform factor.
+ The BFM named constants for the variables are substituted by the configuration
+ script at compilation time and then copied to the running directory as
+ fully detailed in Sec.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Configuring-BFM-NEMO"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In addition to this part that is common to other biogeochemical models in
+ the TOP interface, the BFM allows to choose the specific mode of initialization
+ for each variable in the namelist 
+\family typewriter
+bfm_init_nml
+\family default
+.
+ This is the same namelist used for the STANDALONE model as described in
+ BFM core manual (chap.
+ 5), but when coupled with NEMO it also allows to specify if each variable
+ should start from the initial file given in the namelist above, from a
+ constant homogeneous value or from an analytical profile: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,language=Fortran"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+! NAMELIST bfm_init_nml
+\end_layout
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+!Pelagic initialisation of standard variables
+\end_layout
+
+\begin_layout Plain Layout
+
+!<variablename>0 = <realvalue>
+\end_layout
+
+\begin_layout Plain Layout
+
+!
+\end_layout
+
+\begin_layout Plain Layout
+
+! Initialization with InitVar structure
+\end_layout
+
+\begin_layout Plain Layout
+
+!----------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+! NOTE:
+\end_layout
+
+\begin_layout Plain Layout
+
+! This part is still experimental and will be improved in the future
+\end_layout
+
+\begin_layout Plain Layout
+
+!----------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+! BFM variable information for data input
+\end_layout
+
+\begin_layout Plain Layout
+
+! available fields:
+\end_layout
+
+\begin_layout Plain Layout
+
+! integer init: select the initialization
+\end_layout
+
+\begin_layout Plain Layout
+
+!               0 = homogeneous
+\end_layout
+
+\begin_layout Plain Layout
+
+!               1 = analytical
+\end_layout
+
+\begin_layout Plain Layout
+
+!               2 = from file
+\end_layout
+
+\begin_layout Plain Layout
+
+! options for init==1
+\end_layout
+
+\begin_layout Plain Layout
+
+!   real anv1: value in the surface layer
+\end_layout
+
+\begin_layout Plain Layout
+
+!   real anz1: depth of the surface layer
+\end_layout
+
+\begin_layout Plain Layout
+
+!   real anv2: value in the bottom layer
+\end_layout
+
+\begin_layout Plain Layout
+
+!   real anz2: depth of the bottom layer
+\end_layout
+
+\begin_layout Plain Layout
+
+! options for init==2
+\end_layout
+
+\begin_layout Plain Layout
+
+! * Options currently used when coupled with NEMO
+\end_layout
+
+\begin_layout Plain Layout
+
+!   logical obc: variable has open boundary data
+\end_layout
+
+\begin_layout Plain Layout
+
+!   logical sbc: variable has surface boundary data
+\end_layout
+
+\begin_layout Plain Layout
+
+!   logical cbc: variable has coastal boundary data
+\end_layout
+
+\begin_layout Plain Layout
+
+! * Options not used when coupled with NEMO because
+\end_layout
+
+\begin_layout Plain Layout
+
+!   overridden by values in namelist_top_cfg
+\end_layout
+
+\begin_layout Plain Layout
+
+!   char filename: name of the input file
+\end_layout
+
+\begin_layout Plain Layout
+
+!   char  varname: name of the var in input file
+\end_layout
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+&bfm_init_nml
+\end_layout
+
+\begin_layout Plain Layout
+
+   InitVar(O2o)%init = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+   O2o0 = 300.0,
+\end_layout
+
+\begin_layout Plain Layout
+
+   InitVar(N1p)%init = 2
+\end_layout
+
+\begin_layout Plain Layout
+
+   InitVar(N1p)%sbc  = .false.
+\end_layout
+
+\begin_layout Plain Layout
+
+   InitVar(N1p)%cbc  = .false.
+\end_layout
+
+\begin_layout Plain Layout
+
+   InitVar(N1p)%obc  = .false.
+\end_layout
+
+\begin_layout Plain Layout
+
+   InitVar(N1p)%init = 1
+\end_layout
+
+\begin_layout Plain Layout
+
+   InitVar(P1c)%anv1 = 5.0
+\end_layout
+
+\begin_layout Plain Layout
+
+   InitVar(P1c)%anz1 = 20.0
+\end_layout
+
+\begin_layout Plain Layout
+
+   InitVar(P1c)%anv2 = 1.0
+\end_layout
+
+\begin_layout Plain Layout
+
+   InitVar(P1c)%anz2 = 100.0
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the above example, oxygen is initialized with a constant value, phosphate
+ is read from file and phytoplankton carbon is initialized with a stepwise
+ analytical profile with higher concentration in the surface 20 m, a lower
+ value in the adjacent 100 m and the background concentration in the reminder
+ of the water column.
+\end_layout
+
+\begin_layout Standard
+Surface, coastal and open boundary values for biogeochemical variables can
+ also be switched on and off from this namelist and they are fully detailed
+ in Sec.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Boundary-conditions-TOP"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Another important parameter to be checked in coupled configurations is the
+ sinking velocity of BFM variables.
+ BFM computes a dynamical sinking velocity for phytoplankton that is dependent
+ on nutrient stress (if activated) and a constant background sinking rate
+ for phytoplankton and detritus.
+ These are considered to be global variables and they are included in the
+ namelist 
+\family typewriter
+PelGlobal_parameters
+\family default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},language=Fortran"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+!NAMELIST PelGlobal_parameters
+\end_layout
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+! Sinking rates of Pelagic Variables
+\end_layout
+
+\begin_layout Plain Layout
+
+!  : for mem_PelGlobal filled by InitPelGlobal
+\end_layout
+
+\begin_layout Plain Layout
+
+! NAME           UNIT      DESCRIPTION
+\end_layout
+
+\begin_layout Plain Layout
+
+! p_rR6m         [m/d]   detritus sinking rate
+\end_layout
+
+\begin_layout Plain Layout
+
+! KSINK_rPPY      [m]    prescribe sinking rate for phytoplankton below
+ this
+\end_layout
+
+\begin_layout Plain Layout
+
+!                        depth threshold to p_rR6m value.
+ Use 0.0 to disable.
+\end_layout
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+&PelGlobal_parameters
+\end_layout
+
+\begin_layout Plain Layout
+
+  p_rR6m         = 10.0
+\end_layout
+
+\begin_layout Plain Layout
+
+  KSINK_rPPY     = 150.0
+\end_layout
+
+\begin_layout Plain Layout
+
+/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Boundary conditions in TOP
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Boundary-conditions-TOP"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+NEMO TOP interface allows to define different types of boundary conditions
+ for biogeochemical tracers.
+ For every single variable it is possible to define a field of surface boundary
+ conditions, such as deposition of dust or nitrogen, which is then interpolated
+ to the grid and timestep using the 
+\family typewriter
+fld_read
+\family default
+ function.
+ The same facility is available to include river inputs (coastal boundary
+ conditions) and the treatment of lateral open boundary conditions (see
+ also 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "nemo_top_1471700"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+The namelist 
+\family typewriter
+namtrc_bc 
+\family default
+is contained in file 
+\family typewriter
+namelist_top_cfg
+\family default
+ (which in the BFM is generated during the first compilation, see Sec.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Configuring-BFM-NEMO"
+
+\end_inset
+
+) and allows to specify the name of the files, the frequency of the input
+ and the time and space interpolation as done for any other field using
+ the 
+\family typewriter
+fld_read
+\family default
+ interface.
+ It also allows to specify how freshwater fluxes from sea ice freezing and
+ melting affect the concentration of tracers.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},language=Fortran"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+!NAMELIST namtrc_bc
+\end_layout
+
+\begin_layout Plain Layout
+
+!-----------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+!   Set input files for surface (s), coastal (c) or open (o) boundary
+\end_layout
+
+\begin_layout Plain Layout
+
+!   conditions for each variable
+\end_layout
+
+\begin_layout Plain Layout
+
+!   sn_trc?bc(VARNAME): structure with file name and interpolation
+\end_layout
+
+\begin_layout Plain Layout
+
+!   rn_tr?fac(VARNAME): conversion factor
+\end_layout
+
+\begin_layout Plain Layout
+
+!   Specifications for fld_read:
+\end_layout
+
+\begin_layout Plain Layout
+
+!   !file name!frequency (hr)!variable!time interp.!clim !'yearly' or !weights
+  !rotation!land/sea
+\end_layout
+
+\begin_layout Plain Layout
+
+!   !         !(if <0 mon)   !  name  !  (logical) !(T/F)! 'monthly'  !filename
+ ! pairing! mask
+\end_layout
+
+\begin_layout Plain Layout
+
+!-----------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+&namtrc_bc
+\end_layout
+
+\begin_layout Plain Layout
+
+   sn_trcsbc(N7f) = 'IRON_DEPOSITION', -12 , 'fedep' , .false.
+ , .true.
+ , 'yearly', '', '', ''
+\end_layout
+
+\begin_layout Plain Layout
+
+   rn_trsfac(N7f) =  5.0e-03 ! umol/m2/day, dissolution fraction 5o/oo
+\end_layout
+
+\begin_layout Plain Layout
+
+   sn_trccbc(N1p) = 'RIVER'          , -12 , 'po4'   , .false.
+ , .true.
+ , 'yearly', '', '', ''
+\end_layout
+
+\begin_layout Plain Layout
+
+   rn_trcfac(N1p) =  8.8464e+10 ! 1 mol P = 30.97 g; 1.e12*1.e3/30.97/365 
+\end_layout
+
+\begin_layout Plain Layout
+
+                                ! conversion factor from Tg/y to mmol/d
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+   cn_dir_sbc    =  './'      !  root directory for the location of SURFACE
+ data files
+\end_layout
+
+\begin_layout Plain Layout
+
+   cn_dir_cbc    =  './'      !  root directory for the location of COASTAL
+ data files
+\end_layout
+
+\begin_layout Plain Layout
+
+   cn_dir_obc    =  './'      !  root directory for the location of OPEN
+ data files
+\end_layout
+
+\begin_layout Plain Layout
+
+   ln_rnf_ctl    = .true.
+     !  Remove runoff dilution on tracers with absent river load
+\end_layout
+
+\begin_layout Plain Layout
+
+   rn_sbc_time   =  86400.
+    !  Time scaling factor for SBC data (seconds in a day)
+\end_layout
+
+\begin_layout Plain Layout
+
+   rn_cbc_time   =  86400.
+    !  Time scaling factor for CBC data (seconds in a day)
+\end_layout
+
+\begin_layout Plain Layout
+
+/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Coupling of the underwater shortwave irradiance
+\end_layout
+
+\begin_layout Standard
+One of the largest coupling mechanism between ocean physics and biogeochemistry
+ is the irradiance attenuation driven by suspended and dissolved components
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "e.g."
+key "patara12"
+literal "true"
+
+\end_inset
+
+.
+ In NEMO this is controlled by the namelist 
+\family typewriter
+namtra_qsr
+\family default
+, which is usally not modified in the configuration files and it is located
+ in 
+\family typewriter
+namelist_ref
+\family default
+ 
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},language=Fortran"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+!-----------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+&namtra_qsr    !   penetrative solar radiation
+\end_layout
+
+\begin_layout Plain Layout
+
+!-----------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+   sn_chl      ='chlorophyll',    .......
+\end_layout
+
+\begin_layout Plain Layout
+
+   cn_dir      = './'      !  root directory for the location of the runoff
+ files
+\end_layout
+
+\begin_layout Plain Layout
+
+   ln_traqsr   = .true.
+    !  Light penetration (T) or not (F)
+\end_layout
+
+\begin_layout Plain Layout
+
+   ln_qsr_rgb  = .true.
+    !  RGB (Red-Green-Blue) light penetration
+\end_layout
+
+\begin_layout Plain Layout
+
+   ln_qsr_2bd  = .false.
+   !  2 bands              light penetration
+\end_layout
+
+\begin_layout Plain Layout
+
+   ln_qsr_bio  = .false.
+   !  bio-model light penetration
+\end_layout
+
+\begin_layout Plain Layout
+
+   nn_chldta   =      1    !  RGB : Chl data (=1) or cst value (=0)
+\end_layout
+
+\begin_layout Plain Layout
+
+   rn_abs      =   0.58    !  RGB & 2 bands: fraction of light (rn_si1)
+\end_layout
+
+\begin_layout Plain Layout
+
+   rn_si0      =   0.35    !  RGB & 2 bands: shortest depth of extinction
+\end_layout
+
+\begin_layout Plain Layout
+
+   rn_si1      =   23.0    !  2 bands: longest depth of extinction
+\end_layout
+
+\begin_layout Plain Layout
+
+   ln_qsr_ice  = .true.
+    !  light penetration for ice-model LIM3
+\end_layout
+
+\begin_layout Plain Layout
+
+/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The coupling with a biogeochemical model is controlled by the parameter
+ 
+\family typewriter
+ln_qsr_bio
+\family default
+.
+ If this is set to false as in the default settings above, shortwave radiation
+ penetrates the interior of the ocean according to a 4 waveband algorithm
+ (
+\family typewriter
+ln_qsr_rgb=.true.
+\family default
+), where the incident spectrum is decomposed in infrared, red, green and
+ blue (RGB) portions that are attenuated differentially as a function of
+ chlorophyll concentration.
+ This approximated tabulated solution has been proposed by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "lengaigne07"
+literal "true"
+
+\end_inset
+
+ using original data by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "morel88"
+literal "true"
+
+\end_inset
+
+ for 68 wavelengths.
+ If available for the specific configuration, the chlorophyll field is read
+ from a data file (given in the structure 
+\family typewriter
+sn_chl
+\family default
+) and used to compute the attenuation coefficients for RGB and the shortwave
+ radiation that is absorbed at every level.
+ This information is used to compute the trend of ocean temperature.
+ The alternative uncoupled configuration is the standard formulation by
+ Paulson and Simpson (
+\family typewriter
+ln_qsr_2bd=.true.
+\family default
+) where light is attenuated according to a 2 waveband formulation, near-infrared
+ and visible.
+\end_layout
+
+\begin_layout Standard
+The same cases are specifically handled by the BFM within the module 
+\family typewriter
+$BFMDIR/src/nemo/trcopt_bfm.F90
+\family default
+ that uses the parameter 
+\family typewriter
+ChlAttenFlag
+\family default
+ (see 
+\family typewriter
+PAR_parameters
+\family default
+ in 
+\family typewriter
+Pelagic_Environment.nml
+\family default
+) to compute the vertical light penetration using a 2- (
+\family typewriter
+ChlAttenFlag=1
+\family default
+) or a 3- (
+\family typewriter
+ChlAttenFlag=2
+\family default
+) wavebands formulation and the namelist above is not considered.
+ The infrared attenuation depth is substituted by the attenuation coefficient
+ (
+\family typewriter
+p_epsIR=1/rn_si0
+\family default
+) and the fraction of visible light spectral energy is equivalent to 
+\family typewriter
+p_PAR=1-rn_abs
+\family default
+.
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},language=Fortran"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+! PAR_parameters
+\end_layout
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------!
+\end_layout
+
+\begin_layout Plain Layout
+
+&PAR_parameters
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+    ChlAttenFlag       =  2
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+    p_PAR              =  0.42
+\end_layout
+
+\begin_layout Plain Layout
+
+    p_epsIR            =  2.857
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+/
+\end_layout
+
+\end_inset
+
+The difference between a coupled and uncoupled simulation depends on two
+ factors: how different the chlorophyll seasonality is from the climatological
+ dataset used to compute the attenuation coefficient and the vertical distributi
+on of dynamical chlorophyll, because the satellite-derived chlorophyll is
+ assumed to be homogeneous in the vertical.
+ An example of the difference in the resulting shortwave flux at every depth
+ is given in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:shortwave-coupled-uncoupled"
+
+\end_inset
+
+ for a station in the North Pacific (Station PAPA).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/qsr_bio.eps
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:shortwave-coupled-uncoupled"
+
+\end_inset
+
+Difference of shortwave heat flux between an uncoupled and coupled simulation,
+ where light attenuation is a function of the BFM chlorophyll.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Installation, configuration and compilation
+\end_layout
+
+\begin_layout Section
+Installation 
+\end_layout
+
+\begin_layout Standard
+Both the BFM and NEMO codes have to be downloaded from the respective distributi
+on sites.
+ The present coupling refers to NEMO version 4.2 and BFM version 5.3.
+ Please contact the BFM System Team 
+\family typewriter
+(bfm_st@cmcc.it)
+\family default
+ for information on the use of BFM with previous stable version of NEMO.
+ In the following, it is assumed that the NEMO code is found in a directory
+ identified by the environmental variable 
+\family typewriter
+$NEMODIR
+\family default
+ and the BFM in the directory 
+\family typewriter
+$BFMDIR
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+As it occurs for the NEMO compilation, it is necessary to select a configuration
+ before doing the compilation of BFM-NEMO.
+ The default basic configuration of BFM coupled with NEMO is GYRE_BFM (Chap.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Running-GYRE_BFM"
+
+\end_inset
+
+), which simulates the general circulation of a double gyre ideally located
+ in the north-western Atlantic.
+ The directory 
+\family typewriter
+GYRE_BFM
+\family default
+ is already distributed with NEMO in the configuration directory, while
+ the global ocean configuration PELAGOS (see Chap.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:PELAGOS"
+
+\end_inset
+
+) is provided with the BFM and other coupled configurations can be added
+ by the user.
+\end_layout
+
+\begin_layout Standard
+Refer to the NEMO web site for how to obtain the code and how to install
+ it.
+ It is suggested to first compile and run the desired NEMO configuration
+ without the BFM, in order to set up the necessary compilation environment.
+ The same architecture file contained in the directory 
+\family typewriter
+$NEMODIR/arch
+\family default
+ will in fact be used by the BFM configuration script.
+ The same software required for running NEMO is necessary for the coupled
+ configuration, with the only addition of 
+\family typewriter
+perl
+\family default
+ (version 5.8.2 and above), which is used automatically during compilation
+ time to generate the code.
+\end_layout
+
+\begin_layout Standard
+Download the source code from the BFM website at 
+\begin_inset CommandInset href
+LatexCommand href
+name "www.bfm-community.eu"
+target "www.bfm-community.eu"
+literal "false"
+
+\end_inset
+
+.
+ In the example below it is assumed that you downloaded the tarball.
+ The downloaded file may have a different name based on the version.
+ As a final step create the required basic environmental variables pointing
+ at the root directories as: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+% mkdir $HOME/BFM
+\end_layout
+
+\begin_layout Plain Layout
+
+% cd $HOME/BFM
+\end_layout
+
+\begin_layout Plain Layout
+
+% tar xzvf bfm-release-<version>.tgz
+\end_layout
+
+\begin_layout Plain Layout
+
+% export BFMDIR=$HOME/BFM
+\end_layout
+
+\begin_layout Plain Layout
+
+% export NEMODIR=$HOME/NEMO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Configuring BFM with NEMO
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Configuring-BFM-NEMO"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Configuration and deployment of the model is done automatically by the script
+ 
+\shape italic
+bfm_configure.sh
+\shape default
+ (see the BFM manual for more information or simply run 
+\family typewriter
+./bfm_configure.sh -h
+\family default
+).
+ The default configuration (see Chap.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Running-GYRE_BFM"
+
+\end_inset
+
+) is generated, compiled and deployed with the command:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+% cd $BFMDIR/build
+\end_layout
+
+\begin_layout Plain Layout
+
+% ./bfm_configure.sh -gcd -a ARCHFILENAME -p GYRE_BFM
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+where ARCHFILENAME must be substituted by the name of your specific architecture
+ files that is found in 
+\family typewriter
+$NEMODIR/arch
+\family default
+.
+ The generated namelists and model executable will be found in 
+\family typewriter
+$BFMDIR/run/gyre_bfm
+\family default
+ or in the directory indicated by the environmental variable 
+\family typewriter
+$BFMDIR_RUN
+\family default
+ if set.
+\end_layout
+
+\begin_layout Subsection
+The GYRE_BFM preset
+\end_layout
+
+\begin_layout Standard
+As it occurs for BFM STANDALONE, a configuration is defined by a model layout
+ structure and initial input values.
+ The GYRE_BFM preset is found in the 
+\family typewriter
+$BFMDIR/build/configurations/GYRE_BFM
+\family default
+ folder and contains the following files:
+\end_layout
+
+\begin_layout Subsubsection*
+
+\family typewriter
+configuration:
+\family default
+ compilation and deployment options
+\end_layout
+
+\begin_layout Standard
+This file uses the F90 namelist format to set values and strings must be
+ surrounded by the ' character:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+&BFM_conf
+\end_layout
+
+\begin_layout Plain Layout
+
+        MODE     = 'NEMO',
+\end_layout
+
+\begin_layout Plain Layout
+
+        CPPDEFS  = 'BFM_NEMO BFM_NOPOINTERS BFM_PARALLEL INCLUDE_PELCO2
+ INCLUDE_PELFE',
+\end_layout
+
+\begin_layout Plain Layout
+
+        ARCH     = 'ARCHFILENAME',
+\end_layout
+
+\begin_layout Plain Layout
+
+        PROC     = 8,
+\end_layout
+
+\begin_layout Plain Layout
+
+        EXP      = 'gyre_bfm',
+\end_layout
+
+\begin_layout Plain Layout
+
+        QUEUE    = 'p_short',
+\end_layout
+
+\begin_layout Plain Layout
+
+        NEMOSUB  = 'OCE TOP',
+\end_layout
+
+\begin_layout Plain Layout
+
+        EXPFILES = 'namelist_cfg namelist_top_cfg iodef.xml context_nemo.xml'
+\end_layout
+
+\begin_layout Plain Layout
+
+/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These options prescribe that the GYRE_BFM configuration is a coupled MODE
+ with NEMO, and it has the pre-compiler macros specified in 
+\family typewriter
+CPPDEFS
+\family default
+ (parallel simulation, as it is in the standard NEMO GYRE configuration;
+ inclusion of carbonate and iron dynamics and possibility to store the diagnosti
+c output).
+ In particular, the 
+\family typewriter
+BFM_PARALLEL 
+\family default
+macro is used to enable the creation of a simulation log file when using
+ parallel execution on multiple processors.
+ Please refer to the BFM core manual for further details on the other macros.
+ 
+\end_layout
+
+\begin_layout Standard
+The coupled configurations also require to include the parameters to run
+ the OGCM in the running directory.
+ This is done by means of the variable 
+\family typewriter
+EXPFILES
+\family default
+, that contains the name of the ancillary files (the configuration namelist
+ for NEMO and TOP interface), as well as the the I/O definition that have
+ to be copied to the running directory.The configuration script also copies
+ the reference configurations from the 
+\family typewriter
+$NEMODIR/cfgs/SHARED
+\family default
+ directory.
+\end_layout
+
+\begin_layout Subsubsection*
+
+\family typewriter
+layout:
+\family default
+ memory layout configuration file
+\end_layout
+
+\begin_layout Standard
+This file contains the list of state variables defined in the BFM.
+ This is independent of the coupled configuration and it is fully detailed
+ in the BFM core manual.
+\end_layout
+
+\begin_layout Subsubsection*
+
+\family typewriter
+namelists_bfm:
+\family default
+ template namelist file for BFM and NEMO-TOP with standard values
+\end_layout
+
+\begin_layout Standard
+This file contains all the standard values of the namelists used for the
+ experiment.
+ This file is processed by the configuration script and the BFM named constants
+ are substituted by numerical constants both for BFM parameters and for
+ the ones needed by NEMO-TOP, such as the boundary conditions (see Sec.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Boundary-conditions-TOP"
+
+\end_inset
+
+), generating the configuration namelist file 
+\family typewriter
+namelist_top_cfg
+\family default
+.
+ Namelists are checked for consistency against the source code at generation
+ time and the files effectively used for the simulation are copied to the
+\family typewriter
+\emph on
+ 
+\shape italic
+$BFMDIR/run
+\family default
+\shape default
+\emph default
+ directory.
+ The regular user will generally work with generated namelists and usually
+ there is no need to change any keyword in this file unless new boundary
+ conditions are added or the layout is changed.
+\end_layout
+
+\begin_layout Section
+Compilation and interaction with 
+\family typewriter
+makenemo
+\end_layout
+
+\begin_layout Standard
+This section provides more details on the joint compilation and it is intended
+ mostly for NEMO developers.
+ The configuration script, when called with 
+\family typewriter
+MODE
+\family default
+ option equal to 
+\family typewriter
+NEMO
+\family default
+, prepares the BFM code and make it compatible with the NEMO compilation
+ using the FCM configuration manager (
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.metoffice.gov.uk/research/weather/weather-science-it/fcm"
+literal "false"
+
+\end_inset
+
+).
+ More specifically, 
+\family typewriter
+bfm_configure.sh
+\family default
+ creates an fcm file for the BFM source code that is then included in the
+ compilation process by means of the 
+\family typewriter
+$NEMODIR/cfgs/GYRE_BFM/cpp_GYRE_BFM.fcm
+\family default
+ file (or any other 
+\family typewriter
+cpp_*
+\family default
+ file from a coupled BFM configuration, see for instance Chap.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:PELAGOS"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+bld::tool::fppkeys key_top key_xios key_linssh
+\end_layout
+
+\begin_layout Plain Layout
+
+inc $BFMDIR/src/nemo/bfm.fcm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The file 
+\family typewriter
+bfm.fcm
+\family default
+ does not exist initially in the BFM tree and it is generated from a template
+ found in 
+\family typewriter
+$BFMDIR/build/scripts/proto
+\family default
+ depending on the directory structure and model choices.
+ The specific pre-compilation macro 
+\family typewriter
+BFM_NEMO
+\family default
+ that is required by BFM to activate the NEMO-related parts of the code
+ is also added to the list of macros.
+\end_layout
+
+\begin_layout Standard
+Finally, the compilation with makenemo is launched by prescribing the use
+ of an external directory (option -e) that allows the substitution of the
+ 
+\family typewriter
+TOP
+\family default
+ files with the ones containing the coupling with the BFM (see Chap.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Technical-coupling-NEMO"
+
+\end_inset
+
+).
+ After the first generation with the bfm_configure.sh script it is also possible
+ to compile the model from the standard 
+\family typewriter
+$NEMODIR/cgfs
+\family default
+ directory with the command
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+./makenemo -n GYRE_BFM -m ARCHFILE -e ${BFMDIR}/src/nemo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Running GYRE_BFM
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Running-GYRE_BFM"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Description
+\end_layout
+
+\begin_layout Standard
+GYRE_BFM is an analytical configuration of NEMO that simulates a warm and
+ cold gyre ideally located in the North Atlantic.
+ Only the pelagic system can be currently simulated with this configuration.
+ The model is forced with analytical heat and momentum fluxes over a regular
+ year of 360 days and starts from homogeneous initial conditions for biogeochemi
+stry.
+ The model output is in NetCDF.
+ The default grid is 22 x 32 with 31 vertical levels.
+ The system generates NetCDF output files through the XIOS library (see
+ chap.
+ 10 of NEMO manual) and NetCDF restart files trough the TOP interface.
+ 
+\end_layout
+
+\begin_layout Standard
+Together with the BFM, the GYRE configuration increases substantially the
+ computational burden, therefore it is also a good example to learn how
+ to use the model with multiple processes.
+ In this case, it is necessary to install an MPI library (like 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.open-mpi.org/"
+
+\end_inset
+
+) and use a NEMO ARCH file with the 
+\family typewriter
+mpif90
+\family default
+ compiler.
+ This preset is part of the official NEMO release.
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Standard
+This example demonstrates the role of the major physical factors in driving
+ the plankton response.
+ The double gyre is characterized by a warm subtropical cell and a cold
+ subpolar cell (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Example-GYRE_BFM"
+
+\end_inset
+
+) that are separated by a simplified current that should mimic the features
+ of a western boundary current.
+ Phytoplankton production is generally localized around the current bordering
+ the gyres and in correspondence with the cold and less stratified parts
+ of the sub-polar gyre.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/GYRE_BFM_SST_land.png
+	lyxscale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/GYRE_BFM_PP_land.png
+	lyxscale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Example-GYRE_BFM"
+
+\end_inset
+
+Example output from GYRE_BFM after 9 years of simulation.
+ Mean annual sea surface temperature (top) and net primary production (bottom).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+The PELAGOS global ocean configuration
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:PELAGOS"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Description
+\end_layout
+
+\begin_layout Standard
+PELAGOS stands for PELAGic biogeochemistry for Global Ocean Simulations
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "vichi07_part2"
+literal "true"
+
+\end_inset
+
+ and it is a global ocean implementation of the BFM with NEMO using the
+ family of ORCA grids.
+ It was originally designed as a specific sub-set and integration of functional
+ parameterizations that were required to address global ocean dynamics and
+ it is now a reference configuration of the BFM.
+ This implies that any BFM feature can be used with NEMO also in global
+ ocean configurations.
+ The PELAGOS family of configurations follows the ORCA family specifications,
+ that is PELAGOS1 refers to the ORCA1 grid (see, e.g., 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lovato2022"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+PELAGOS1 is the CMIP6 class global ocean resolution and it requires a parallel
+ computing environment for its usage.
+ The default set up of PELAGOS1 accounts for the following main physical
+ features:
+\end_layout
+
+\begin_layout Itemize
+sea ice model SI3 (
+\family typewriter
+key_si3
+\family default
+)
+\end_layout
+
+\begin_layout Itemize
+Laplacian diffusion and coefficients for horizontal diffusion with 2-D variation
+ 
+\end_layout
+
+\begin_layout Itemize
+eddy-induced velocity parameterization of enhanced diffusion and related
+ diagnostics
+\end_layout
+
+\begin_layout Itemize
+vertical turbulence TKE closure and vertical tidal mixing
+\end_layout
+
+\begin_layout Itemize
+bottom boundary layer parameterization 
+\end_layout
+
+\begin_layout Standard
+with the addition of the pre-processing macros to turn on passive tracers
+ (
+\family typewriter
+key_top
+\family default
+ ).
+\end_layout
+
+\begin_layout Standard
+By default, PELAGOS1 is compiled with the embedded I/O library XIOS (
+\family typewriter
+key_xios
+\family default
+) which must be compiled as an external library.
+ On a modern super-computer, 1 month of simulation takes about 5 minutes
+ using 180 processors.
+\end_layout
+
+\begin_layout Section
+The PELAGOS1 preset
+\end_layout
+
+\begin_layout Standard
+This preset is not part of the official BFM release but it uses the 
+\family typewriter
+makenemo
+\family default
+ tool to create the configuration PELAGOS1 in the 
+\family typewriter
+$NEMODIR/cfgs
+\family default
+ directory to allow the compilation with FCM.
+ Users should know that the file 
+\family typewriter
+cpp_PELAGOS1.fcm
+\family default
+ containing the preprocessing macros listed above is found in this directory,
+ and once you have created the corresponding configuration directory in
+ the NEMO tree it will be copied there and should be subsequently modified
+ from there.
+\end_layout
+
+\begin_layout Standard
+When the configuration script is called with the PELAGOS1 preset, 
+\family typewriter
+makenemo
+\family default
+ is requested to create a new configuration and 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+% ./bfm_configure.sh -gcd -a ARCHFILE -p PELAGOS1
+\end_layout
+
+\begin_layout Plain Layout
+
+You are  installing a new configuration
+\end_layout
+
+\begin_layout Plain Layout
+
+Creating PELAGOS1/WORK = OPA TOP ICE for PELAGOS1
+\end_layout
+
+\begin_layout Plain Layout
+
+MY_SRC directory is : PELAGOS1/MY_SRC
+\end_layout
+
+\begin_layout Plain Layout
+
+....
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The run directory is created in 
+\family typewriter
+$BFMDIR_RUN/pelagos1
+\family default
+ just like all other BFM presets and the NEMO executable is linked to there.
+ The preset and input files needed to reproduce the results shown below
+ are made available upon request to the BFM System Team.
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Standard
+A 9 years-long simulation was performed with the PELAGOS1 configuration
+ by using the normal year CORE II atmospheric forcing 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "LargeYager2008"
+literal "true"
+
+\end_inset
+
+ and climatological river runoff 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "DaiTren2002"
+literal "true"
+
+\end_inset
+
+ and nutrients loads 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "mayorga2010"
+literal "true"
+
+\end_inset
+
+.
+ The initial conditions of both physical and biogeochemical variables were
+ set using the World Ocean Atlas 2018 climatological fields 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "garcia2019oxygen,garcia2019nutrients"
+literal "false"
+
+\end_inset
+
+ and GLODAPv2 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lauvset2016"
+literal "false"
+
+\end_inset
+
+.
+ Input data can be requeste to the BFM Systema Team (see 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://bfm-community.eu"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+In Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Example-output-PELAGOS1"
+
+\end_inset
+
+ are shown the mean annual fields for the sea surface temperature and the
+ satellite-like chlorophyll concentration (using 1% light threshold for
+ depth integration, see Sec.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Diagnostic-satellite-chl"
+
+\end_inset
+
+) computed in the last year of simulation.
+ PELAGOS1 is capable to reproduce the main distribution patterns of primary
+ producers across the different oceanic regions, by preserving also the
+ minimum concentration within the subtropical oceanic gyres.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/PELAGOS1_core2_10yr_quad_panel.png
+	lyxscale 40
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Example-output-PELAGOS1"
+
+\end_inset
+
+Example output from PELAGOS1 after 10 years of simulation under perpetual
+ CORE2 atmospheric forcings.
+ Satellite-like chlorophyll at 1% light level (a), 0–100 m concentrations
+ of dissolved inorganic nitrate (b), dissolved oxygen concentration between
+ 100 and 600 m (c), and 0–100 m concentrations of dissolved inorganic carbon
+ (d) .
+ See Sec.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Diagnostic-satellite-chl"
+
+\end_inset
+
+ for details on satellite-like chlorophyll computation.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Output and diagnostics
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+BFM in STANDALONE mode uses its own libraries for NetCDF output that are
+ specifically built to create diagnostic rates between the biogeochemical
+ variables (see Chap.
+ 8 in BFM core manual).
+ 
+\end_layout
+
+\begin_layout Standard
+Since version 3.6 of NEMO, the external library XIOS can be used to distribute
+ the computation and preparation of output over different processes and
+ with a different domain decomposition.
+ 
+\end_layout
+
+\begin_layout Standard
+The XIOS library interface is used to produce BFM outputs, as a set of dedicated
+ XML files are produced during code generation to setup required output
+ files and fields as in NEMO.
+ In particular, 
+\family typewriter
+field_def_bfm.xml
+\family default
+ file contains the description of all accessible BFM variables and 
+\family typewriter
+file_def_bfm.xml
+\family default
+ it is used to select the variables to be included in the output files.
+ In order to be used by XIOS, these two files must be integrated in the
+ general general NEMO 
+\family typewriter
+iodef.xml
+\family default
+ file (see an example in the GYRE_BFM preset)
+\family typewriter
+.
+\end_layout
+
+\begin_layout Standard
+The restart is controlled through the logical key 
+\family typewriter
+ln_rsttr
+\family default
+ in 
+\family typewriter
+namelist_top_cfg
+\family default
+ and restart files are generated for each processor by the TOP interface
+ ourpur procedure, which can be also rebuilt into a single file using the
+ REBUILD_NEMO tool of NEMO.
+\end_layout
+
+\begin_layout Section
+Diagnostic computation of satellite chlorophyll
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Diagnostic-satellite-chl"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This tool is available in directory $BFMDIR/tools/chlsat and computes the
+ chlorophyll concentration as seen by satellite considering: 
+\end_layout
+
+\begin_layout Enumerate
+the optical depth and a tolerance level as described in eq.
+ 2 of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "vichi07_part1"
+literal "true"
+
+\end_inset
+
+; 
+\end_layout
+
+\begin_layout Enumerate
+the 1% light level;
+\end_layout
+
+\begin_layout Enumerate
+the 0.1% light level
+\end_layout
+
+\begin_layout Standard
+Input files are the chlorophyll concentration (variable 
+\family typewriter
+Chla
+\family default
+) and the attenuation coefficient (variable 
+\family typewriter
+xEPS
+\family default
+), both with the same number of time stamps, and the mask file.
+ It also allows to compute the attenuation coefficient using the BFM formula
+ from total chlorophyll concentration, background attenuation and chlorophyll-sp
+ecific absorption coefficient but neglecting the contribution from inorganic
+ suspended matter and detritus.
+\end_layout
+
+\begin_layout Standard
+This tool also computes the integrated primary production (gross and net)
+ down to 1% and 0.1% light level by setting the flag 
+\family typewriter
+compute_intpp
+\family default
+ and providing the paths to the files containing the BFM diagnostics 
+\family typewriter
+ruPPYc
+\family default
+ (gross primary production) and resPPYc (respiration).
+\end_layout
+
+\begin_layout Standard
+The input parameters are in the namelist 
+\family typewriter
+chlsat.nml
+\family default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Fortran,basicstyle={\scriptsize\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------------
+-----!
+\end_layout
+
+\begin_layout Plain Layout
+
+!Main initialisation and output specifications
+\end_layout
+
+\begin_layout Plain Layout
+
+!NAME             KIND    DESCRIPTION
+\end_layout
+
+\begin_layout Plain Layout
+
+!out_fname 	   string 	   Name of output file
+\end_layout
+
+\begin_layout Plain Layout
+
+!inp_dir 	     string 	   Path to the input files
+\end_layout
+
+\begin_layout Plain Layout
+
+!out_dir 	     string    	Path to the output file
+\end_layout
+
+\begin_layout Plain Layout
+
+!mask_fname       string        Full path to NEMO mesh_mask file
+\end_layout
+
+\begin_layout Plain Layout
+
+!chla_fname       string        Name of data file containing 3D Chl
+\end_layout
+
+\begin_layout Plain Layout
+
+!chla_name        string        Name of Chl variable in file
+\end_layout
+
+\begin_layout Plain Layout
+
+!compute_chlsat   logical       Compute chlsat (true by default useful only
+ for NPP) 
+\end_layout
+
+\begin_layout Plain Layout
+
+!compute_eps      logical       Use attenuation coefficient from output
+\end_layout
+
+\begin_layout Plain Layout
+
+!                               or computed using the BFM formula from Chl
+\end_layout
+
+\begin_layout Plain Layout
+
+!                               concentration, neglecting ISM and detritus
+\end_layout
+
+\begin_layout Plain Layout
+
+!                               The computation requires:
+\end_layout
+
+\begin_layout Plain Layout
+
+!   p_eps0        real          background attenuation of water (m-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+!   p_epsChla     real          specific attenuation of Chla (m2/mg Chl)
+\end_layout
+
+\begin_layout Plain Layout
+
+!
+\end_layout
+
+\begin_layout Plain Layout
+
+!eps_fname        string        Name of data file containing 3D att.
+ coeff.
+\end_layout
+
+\begin_layout Plain Layout
+
+!eps_name         string        Name of attenuation coeff.
+ variable in file
+\end_layout
+
+\begin_layout Plain Layout
+
+!tolerance        real          multiplicative factor for optical depth
+\end_layout
+
+\begin_layout Plain Layout
+
+!
+\end_layout
+
+\begin_layout Plain Layout
+
+!
+\end_layout
+
+\begin_layout Plain Layout
+
+!compute_intpp    logical       Compute integrated GPP and NPP down to 1%
+ and 0.1%
+\end_layout
+
+\begin_layout Plain Layout
+
+!gpp_fname        string        Name of data file containing 3D GPP
+\end_layout
+
+\begin_layout Plain Layout
+
+!gpp_name         string        Name of GPP variable in file
+\end_layout
+
+\begin_layout Plain Layout
+
+!rsp_fname        string        Name of data file containing 3D RSP
+\end_layout
+
+\begin_layout Plain Layout
+
+!rsp_name         string        Name of RSP variable in file
+\end_layout
+
+\begin_layout Plain Layout
+
+!-------------------------------------------------------------------------------
+-----!
+\end_layout
+
+\begin_layout Plain Layout
+
+&chlsat_nml
+\end_layout
+
+\begin_layout Plain Layout
+
+   out_fname='chlsat.nc'
+\end_layout
+
+\begin_layout Plain Layout
+
+   inp_dir='.'
+\end_layout
+
+\begin_layout Plain Layout
+
+   out_dir='.'
+\end_layout
+
+\begin_layout Plain Layout
+
+   mask_fname='ORCA2_chlmask.nc'
+\end_layout
+
+\begin_layout Plain Layout
+
+   chla_fname='bfm_output.nc'
+\end_layout
+
+\begin_layout Plain Layout
+
+   chla_name='Chla'
+\end_layout
+
+\begin_layout Plain Layout
+
+   compute_chlsat=.true.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+   compute_eps=.false.
+\end_layout
+
+\begin_layout Plain Layout
+
+   p_eps0=0.0435
+\end_layout
+
+\begin_layout Plain Layout
+
+   p_epsChla=0.03
+\end_layout
+
+\begin_layout Plain Layout
+
+   eps_fname='bfm_output.nc'
+\end_layout
+
+\begin_layout Plain Layout
+
+   eps_name='xEPS'
+\end_layout
+
+\begin_layout Plain Layout
+
+   tolerance=0.0
+\end_layout
+
+\begin_layout Plain Layout
+
+   compute_intpp=.false.
+\end_layout
+
+\begin_layout Plain Layout
+
+   gpp_fname='bfm_output.nc'
+\end_layout
+
+\begin_layout Plain Layout
+
+   gpp_name='ruPPYc'
+\end_layout
+
+\begin_layout Plain Layout
+
+   rsp_fname='bfm_output.nc'
+\end_layout
+
+\begin_layout Plain Layout
+
+   rsp_name='resPPYc'
+\end_layout
+
+\begin_layout Plain Layout
+
+/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+twocolumn
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "bfm-nemo-references"
+options "bibtotoc,elsart-harv"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
