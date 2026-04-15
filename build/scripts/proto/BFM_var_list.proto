@@ -1,0 +1,19 @@
+      INTEGER, parameter :: jptra = %3d-state-pel-nr
+      INTEGER, parameter :: jptra_var = %3d-diagnos-pel-nr
+      INTEGER, parameter :: jptra_flux = %3d-flux-pel-nr      
+      INTEGER, parameter :: jptra_dia = jptra_var + jptra_flux
+       
+      INTEGER, parameter :: jptra_dia_2d = %2d-diagnos-pel-nrs
+ 
+! State variables
+
+        integer,parameter :: %3d-state-pel-pp
+
+!       diagnostic indexes
+        integer,parameter :: %3d-total-diagnos-pel-pp
+
+!       flux indexes
+        integer, parameter:: %3d-flux-pel-pp
+
+!       variables 2d
+        integer, parameter:: %2d-diagnos-pel-pp       
