@@ -48,7 +48,7 @@
    bio_calc     = .TRUE.
    bfm_init     = 0
    bfm_rstctl   = .FALSE.
-   bio_setup    = 3
+   bio_setup    = 1
    out_fname    = 'BFM_standalone'
    out_dir      = '.'
    out_title    = 'BFM_STANDALONE'
@@ -106,7 +106,7 @@
 &Param_parameters
 ! Switches : 
             CalcPelagicFlag = .TRUE.
-            CalcBenthicFlag = .TRUE.
+            CalcBenthicFlag = .FALSE.
        CalcConservationFlag = .TRUE.
           CalcTransportFlag = .FALSE.
        CalcPhytoPlankton(1) = .TRUE.
@@ -129,7 +129,7 @@ AssignAirPelFluxesInBFMFlag = .TRUE.
                    p_pe_R1n = 0.72
                    p_pe_R1p = 0.832
                       p_qro = 0.5
-               p_qon_dentri = 1.25
+               p_qon_dentri = 0.00
                 p_qon_nitri = 2.0
 	filename_nml_conf = 'BFM_General.nml',
 /
@@ -684,7 +684,7 @@ p_paMEZ(2,:)=   0.0,    1.0
     p_sN4N3 = 0.01
     p_clO2o = 10.0
       p_rOS = 0.05
-   p_sN3O4n = 0.35
+   p_sN3O4n = 0.00
     p_clN6r = 1.0
      p_rPAo = 1.0
    p_aeR6N5 = 60.0
