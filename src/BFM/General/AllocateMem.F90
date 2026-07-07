@@ -523,230 +523,165 @@ qscBOM=ZERO
   allocate( D3FLUX_FUNC(1:NO_BOXES, 1:NO_D3_BOX_FLUX),stat=status )
   D3FLUX_FUNC = 0
 
-  allocate( D3FLUX_MATRIX(ppZ5n, ppN4n)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ6c, ppZ4c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ4c, ppZ3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppN4n, ppP4n)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppN1p, ppP2p)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ3c, ppO3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP2c, ppR6c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ6n, ppN4n)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP4c, ppZ6c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppN3n, ppP1n)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppO2o, ppO2o)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppO2o, ppO2o)%dir( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ5c, ppZ4c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP4c, ppZ5c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP3c, ppR6c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppO3c, ppP4c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP1s, ppR6s)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ4c, ppZ6c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppB1c, ppO3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP3c, ppO3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP4c, ppZ3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP2c, ppR3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP2c, ppO3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP4c, ppR2c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ4c, ppZ5c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP3c, ppR3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppN5s, ppP1s)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP1c, ppR2c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppB1n, ppN4n)%p( 1:2 ) )
-  allocate( D3FLUX_MATRIX(ppP2c, ppR1c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP3c, ppZ4c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppB1c, ppZ4c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP3c, ppR1c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP2c, ppZ4c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP1c, ppZ3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP1c, ppZ5c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ5c, ppO3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ3c, ppZ4c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppN3n, ppP3n)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ3n, ppN4n)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppN4n, ppP2n)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ6c, ppO3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppN1p, ppP4p)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppO3c, ppP2c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP1c, ppZ6c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ4p, ppN1p)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP3c, ppR2c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP2c, ppZ3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ3c, ppZ5c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP1c, ppZ4c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP4c, ppR3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP1c, ppR1c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ3c, ppZ6c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP4c, ppO3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP2c, ppR2c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP3c, ppZ3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppB1c, ppZ3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppB1c, ppZ5c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppO3c, ppP1c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ5p, ppN1p)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP3c, ppZ5c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ6p, ppN1p)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP4c, ppR6c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP2c, ppZ6c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP2c, ppZ5c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppN3n, ppP4n)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ3c, ppZ3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ3c, ppZ3c)%dir( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ4c, ppO3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppB1c, ppZ6c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppN4n, ppP1n)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppN1p, ppP3p)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP3c, ppZ6c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppO3c, ppP3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ3p, ppN1p)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ6c, ppZ3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ4c, ppZ4c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ4c, ppZ4c)%dir( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppN4n, ppP3n)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppN1p, ppP1p)%p( 1:1 ) )
   allocate( D3FLUX_MATRIX(ppZ4n, ppN4n)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppO3c, ppO5c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ5c, ppZ3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP1c, ppR6c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppN3n, ppP2n)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ5c, ppZ4c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppB1c, ppZ4c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP3c, ppZ3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP3c, ppZ5c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppN4n, ppP2n)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP1c, ppR2c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP2c, ppR2c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP4c, ppZ6c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ3p, ppN1p)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ6c, ppO3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ3c, ppZ6c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppN1p, ppP3p)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppN4n, ppP4n)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP1c, ppZ6c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ4c, ppZ5c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ4c, ppZ3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppO3c, ppP1c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP4c, ppR2c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP2c, ppZ6c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP4c, ppR3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ6p, ppN1p)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppN3n, ppP1n)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ3c, ppO3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP1s, ppR6s)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP2c, ppO3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppN1p, ppP2p)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppB1c, ppZ5c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppB1c, ppZ3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP3c, ppZ4c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP3c, ppR6c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP1c, ppO3c)%p( 1:1 ) )
   allocate( D3FLUX_MATRIX(ppZ5c, ppZ5c)%p( 1:1 ) )
   allocate( D3FLUX_MATRIX(ppZ5c, ppZ5c)%dir( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP1c, ppO3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppB1p, ppN1p)%p( 1:2 ) )
-  allocate( D3FLUX_MATRIX(ppP4c, ppR1c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ6c, ppZ5c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ5c, ppZ3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ4c, ppZ4c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ4c, ppZ4c)%dir( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP1c, ppR3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ5n, ppN4n)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppB1n, ppN4n)%p( 1:2 ) )
+  allocate( D3FLUX_MATRIX(ppP2c, ppR3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppO2o, ppO2o)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppO2o, ppO2o)%dir( 1:1 ) )
   allocate( D3FLUX_MATRIX(ppZ6c, ppZ6c)%p( 1:1 ) )
   allocate( D3FLUX_MATRIX(ppZ6c, ppZ6c)%dir( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP1c, ppR3c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppZ5c, ppZ6c)%p( 1:1 ) )
-  allocate( D3FLUX_MATRIX(ppP4c, ppZ4c)%p( 1:1 ) )
   allocate( D3FLUX_MATRIX(ppR6s, ppN5s)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppN1p, ppP4p)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP4c, ppO3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP3c, ppR1c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppN4n, ppP3n)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ4c, ppO3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppN4n, ppP1n)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppB1c, ppZ6c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ5c, ppZ6c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP3c, ppR3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP4c, ppR6c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP2c, ppR1c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP4c, ppZ4c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ6n, ppN4n)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppO3c, ppP4c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP1c, ppR1c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ6c, ppZ3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ6c, ppZ5c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ3c, ppZ4c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppN3n, ppP3n)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP2c, ppR6c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP2c, ppZ4c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP4c, ppR1c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP1c, ppR6c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ5p, ppN1p)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppO3c, ppP2c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP3c, ppO3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP1c, ppZ4c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppB1p, ppN1p)%p( 1:2 ) )
+  allocate( D3FLUX_MATRIX(ppN3n, ppP2n)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP4c, ppZ3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP4c, ppZ5c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ3n, ppN4n)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppO3c, ppP3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ4p, ppN1p)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP3c, ppZ6c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppN1p, ppP1p)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP2c, ppZ5c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP2c, ppZ3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppN3n, ppP4n)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppN5s, ppP1s)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ5c, ppO3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppO3c, ppO5c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP1c, ppZ3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP1c, ppZ5c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppB1c, ppO3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ4c, ppZ6c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppP3c, ppR2c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ3c, ppZ3c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ3c, ppZ3c)%dir( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ3c, ppZ5c)%p( 1:1 ) )
+  allocate( D3FLUX_MATRIX(ppZ6c, ppZ4c)%p( 1:1 ) )
 
 
-  ! remZOOp = (N1p<-B.p+Z.p)
-  D3FLUX_MATRIX(ppB1p, ppN1p)%p(1)=+14
-  D3FLUX_MATRIX(ppZ4p, ppN1p)%p(1)=+14
-  D3FLUX_MATRIX(ppZ6p, ppN1p)%p(1)=+14
-  D3FLUX_MATRIX(ppZ5p, ppN1p)%p(1)=+14
-  D3FLUX_MATRIX(ppZ3p, ppN1p)%p(1)=+14
-  
   ! remPBAp = (N1p<-B.p)
   D3FLUX_MATRIX(ppB1p, ppN1p)%p(2)=+16
   
-  ! exPPYc = (P.c->R1c+R2c+R3c+R6c)
-  D3FLUX_MATRIX(ppP4c, ppR1c)%p(1)=+9
-  D3FLUX_MATRIX(ppP4c, ppR2c)%p(1)=+9
-  D3FLUX_MATRIX(ppP4c, ppR3c)%p(1)=+9
-  D3FLUX_MATRIX(ppP4c, ppR6c)%p(1)=+9
-  D3FLUX_MATRIX(ppP3c, ppR1c)%p(1)=+9
-  D3FLUX_MATRIX(ppP3c, ppR2c)%p(1)=+9
-  D3FLUX_MATRIX(ppP3c, ppR3c)%p(1)=+9
-  D3FLUX_MATRIX(ppP3c, ppR6c)%p(1)=+9
-  D3FLUX_MATRIX(ppP1c, ppR1c)%p(1)=+9
-  D3FLUX_MATRIX(ppP1c, ppR2c)%p(1)=+9
-  D3FLUX_MATRIX(ppP1c, ppR3c)%p(1)=+9
-  D3FLUX_MATRIX(ppP1c, ppR6c)%p(1)=+9
-  D3FLUX_MATRIX(ppP2c, ppR1c)%p(1)=+9
-  D3FLUX_MATRIX(ppP2c, ppR2c)%p(1)=+9
-  D3FLUX_MATRIX(ppP2c, ppR3c)%p(1)=+9
-  D3FLUX_MATRIX(ppP2c, ppR6c)%p(1)=+9
-  
-  ! remPBAn = (N4n<-B.n)
-  D3FLUX_MATRIX(ppB1n, ppN4n)%p(2)=+15
-  
-  ! remZOOn = (N4n<-B.n+Z.n)
-  D3FLUX_MATRIX(ppB1n, ppN4n)%p(1)=+13
-  D3FLUX_MATRIX(ppZ4n, ppN4n)%p(1)=+13
-  D3FLUX_MATRIX(ppZ6n, ppN4n)%p(1)=+13
-  D3FLUX_MATRIX(ppZ5n, ppN4n)%p(1)=+13
-  D3FLUX_MATRIX(ppZ3n, ppN4n)%p(1)=+13
-  
-  ! ruPPYc = P.c  <- O3c
-  D3FLUX_MATRIX(ppO3c, ppP4c)%p(1)=+1
-  D3FLUX_MATRIX(ppO3c, ppP2c)%p(1)=+1
-  D3FLUX_MATRIX(ppO3c, ppP3c)%p(1)=+1
-  D3FLUX_MATRIX(ppO3c, ppP1c)%p(1)=+1
-  
-  ! exPPYs = (P.s->R6s)
-  D3FLUX_MATRIX(ppP1s, ppR6s)%p(1)=+10
-  
-  ! ruPPYs = P.s <- N5s
-  D3FLUX_MATRIX(ppN5s, ppP1s)%p(1)=+8
-  
   ! ruZOOc = (Z.c<-P.c+B.c+Z.c)
-  D3FLUX_MATRIX(ppP2c, ppZ5c)%p(1)=+11
-  D3FLUX_MATRIX(ppP1c, ppZ5c)%p(1)=+11
-  D3FLUX_MATRIX(ppP3c, ppZ5c)%p(1)=+11
-  D3FLUX_MATRIX(ppP4c, ppZ5c)%p(1)=+11
-  D3FLUX_MATRIX(ppB1c, ppZ5c)%p(1)=+11
-  D3FLUX_MATRIX(ppZ5c, ppZ5c)%p(1)=+11
-  D3FLUX_MATRIX(ppZ3c, ppZ5c)%p(1)=+11
-  D3FLUX_MATRIX(ppZ4c, ppZ5c)%p(1)=+11
-  D3FLUX_MATRIX(ppZ6c, ppZ5c)%p(1)=+11
-  D3FLUX_MATRIX(ppP2c, ppZ3c)%p(1)=+11
-  D3FLUX_MATRIX(ppP1c, ppZ3c)%p(1)=+11
   D3FLUX_MATRIX(ppP3c, ppZ3c)%p(1)=+11
+  D3FLUX_MATRIX(ppP1c, ppZ3c)%p(1)=+11
   D3FLUX_MATRIX(ppP4c, ppZ3c)%p(1)=+11
+  D3FLUX_MATRIX(ppP2c, ppZ3c)%p(1)=+11
   D3FLUX_MATRIX(ppB1c, ppZ3c)%p(1)=+11
-  D3FLUX_MATRIX(ppZ5c, ppZ3c)%p(1)=+11
   D3FLUX_MATRIX(ppZ3c, ppZ3c)%p(1)=+11
+  D3FLUX_MATRIX(ppZ5c, ppZ3c)%p(1)=+11
   D3FLUX_MATRIX(ppZ4c, ppZ3c)%p(1)=+11
   D3FLUX_MATRIX(ppZ6c, ppZ3c)%p(1)=+11
-  D3FLUX_MATRIX(ppP2c, ppZ4c)%p(1)=+11
-  D3FLUX_MATRIX(ppP1c, ppZ4c)%p(1)=+11
+  D3FLUX_MATRIX(ppP3c, ppZ5c)%p(1)=+11
+  D3FLUX_MATRIX(ppP1c, ppZ5c)%p(1)=+11
+  D3FLUX_MATRIX(ppP4c, ppZ5c)%p(1)=+11
+  D3FLUX_MATRIX(ppP2c, ppZ5c)%p(1)=+11
+  D3FLUX_MATRIX(ppB1c, ppZ5c)%p(1)=+11
+  D3FLUX_MATRIX(ppZ3c, ppZ5c)%p(1)=+11
+  D3FLUX_MATRIX(ppZ5c, ppZ5c)%p(1)=+11
+  D3FLUX_MATRIX(ppZ4c, ppZ5c)%p(1)=+11
+  D3FLUX_MATRIX(ppZ6c, ppZ5c)%p(1)=+11
   D3FLUX_MATRIX(ppP3c, ppZ4c)%p(1)=+11
+  D3FLUX_MATRIX(ppP1c, ppZ4c)%p(1)=+11
   D3FLUX_MATRIX(ppP4c, ppZ4c)%p(1)=+11
+  D3FLUX_MATRIX(ppP2c, ppZ4c)%p(1)=+11
   D3FLUX_MATRIX(ppB1c, ppZ4c)%p(1)=+11
-  D3FLUX_MATRIX(ppZ5c, ppZ4c)%p(1)=+11
   D3FLUX_MATRIX(ppZ3c, ppZ4c)%p(1)=+11
+  D3FLUX_MATRIX(ppZ5c, ppZ4c)%p(1)=+11
   D3FLUX_MATRIX(ppZ4c, ppZ4c)%p(1)=+11
   D3FLUX_MATRIX(ppZ6c, ppZ4c)%p(1)=+11
-  D3FLUX_MATRIX(ppP2c, ppZ6c)%p(1)=+11
-  D3FLUX_MATRIX(ppP1c, ppZ6c)%p(1)=+11
   D3FLUX_MATRIX(ppP3c, ppZ6c)%p(1)=+11
+  D3FLUX_MATRIX(ppP1c, ppZ6c)%p(1)=+11
   D3FLUX_MATRIX(ppP4c, ppZ6c)%p(1)=+11
+  D3FLUX_MATRIX(ppP2c, ppZ6c)%p(1)=+11
   D3FLUX_MATRIX(ppB1c, ppZ6c)%p(1)=+11
-  D3FLUX_MATRIX(ppZ5c, ppZ6c)%p(1)=+11
   D3FLUX_MATRIX(ppZ3c, ppZ6c)%p(1)=+11
+  D3FLUX_MATRIX(ppZ5c, ppZ6c)%p(1)=+11
   D3FLUX_MATRIX(ppZ4c, ppZ6c)%p(1)=+11
   D3FLUX_MATRIX(ppZ6c, ppZ6c)%p(1)=+11
-  D3FLUX_MATRIX(ppZ5c, ppZ5c)%dir(1)=0
   D3FLUX_MATRIX(ppZ3c, ppZ3c)%dir(1)=0
+  D3FLUX_MATRIX(ppZ5c, ppZ5c)%dir(1)=0
   D3FLUX_MATRIX(ppZ4c, ppZ4c)%dir(1)=0
   D3FLUX_MATRIX(ppZ6c, ppZ6c)%dir(1)=0
   
   ! resPPYc = P.c -> O3c
-  D3FLUX_MATRIX(ppP1c, ppO3c)%p(1)=+2
-  D3FLUX_MATRIX(ppP3c, ppO3c)%p(1)=+2
   D3FLUX_MATRIX(ppP2c, ppO3c)%p(1)=+2
   D3FLUX_MATRIX(ppP4c, ppO3c)%p(1)=+2
-  
-  ! ruPPYn = P.n <- N3n+N4n
-  D3FLUX_MATRIX(ppN3n, ppP3n)%p(1)=+6
-  D3FLUX_MATRIX(ppN4n, ppP3n)%p(1)=+6
-  D3FLUX_MATRIX(ppN3n, ppP1n)%p(1)=+6
-  D3FLUX_MATRIX(ppN4n, ppP1n)%p(1)=+6
-  D3FLUX_MATRIX(ppN3n, ppP2n)%p(1)=+6
-  D3FLUX_MATRIX(ppN4n, ppP2n)%p(1)=+6
-  D3FLUX_MATRIX(ppN3n, ppP4n)%p(1)=+6
-  D3FLUX_MATRIX(ppN4n, ppP4n)%p(1)=+6
-  
-  ! rcalCARc = O5c <- O3c
-  D3FLUX_MATRIX(ppO3c, ppO5c)%p(1)=+5
+  D3FLUX_MATRIX(ppP1c, ppO3c)%p(1)=+2
+  D3FLUX_MATRIX(ppP3c, ppO3c)%p(1)=+2
   
   ! resPBAc = B.c -> O3c
   D3FLUX_MATRIX(ppB1c, ppO3c)%p(1)=+3
   
-  ! resZOOc = Z.c -> O3c
-  D3FLUX_MATRIX(ppZ4c, ppO3c)%p(1)=+4
-  D3FLUX_MATRIX(ppZ6c, ppO3c)%p(1)=+4
-  D3FLUX_MATRIX(ppZ3c, ppO3c)%p(1)=+4
-  D3FLUX_MATRIX(ppZ5c, ppO3c)%p(1)=+4
-  
-  ! ruPPYp = P.p <- N1p
-  D3FLUX_MATRIX(ppN1p, ppP1p)%p(1)=+7
-  D3FLUX_MATRIX(ppN1p, ppP3p)%p(1)=+7
-  D3FLUX_MATRIX(ppN1p, ppP2p)%p(1)=+7
-  D3FLUX_MATRIX(ppN1p, ppP4p)%p(1)=+7
+  ! remZOOn = (N4n<-B.n+Z.n)
+  D3FLUX_MATRIX(ppB1n, ppN4n)%p(1)=+13
+  D3FLUX_MATRIX(ppZ3n, ppN4n)%p(1)=+13
+  D3FLUX_MATRIX(ppZ6n, ppN4n)%p(1)=+13
+  D3FLUX_MATRIX(ppZ4n, ppN4n)%p(1)=+13
+  D3FLUX_MATRIX(ppZ5n, ppN4n)%p(1)=+13
   
   ! resPELo = (O2o->*)
   D3FLUX_MATRIX(ppO2o, ppO2o)%p(1)=+12
@@ -754,6 +689,71 @@ qscBOM=ZERO
   
   ! remN5s = (N5s<-R6s)
   D3FLUX_MATRIX(ppR6s, ppN5s)%p(1)=+17
+  
+  ! ruPPYs = P.s <- N5s
+  D3FLUX_MATRIX(ppN5s, ppP1s)%p(1)=+8
+  
+  ! ruPPYn = P.n <- N3n+N4n
+  D3FLUX_MATRIX(ppN3n, ppP3n)%p(1)=+6
+  D3FLUX_MATRIX(ppN4n, ppP3n)%p(1)=+6
+  D3FLUX_MATRIX(ppN3n, ppP1n)%p(1)=+6
+  D3FLUX_MATRIX(ppN4n, ppP1n)%p(1)=+6
+  D3FLUX_MATRIX(ppN3n, ppP4n)%p(1)=+6
+  D3FLUX_MATRIX(ppN4n, ppP4n)%p(1)=+6
+  D3FLUX_MATRIX(ppN3n, ppP2n)%p(1)=+6
+  D3FLUX_MATRIX(ppN4n, ppP2n)%p(1)=+6
+  
+  ! ruPPYc = P.c  <- O3c
+  D3FLUX_MATRIX(ppO3c, ppP2c)%p(1)=+1
+  D3FLUX_MATRIX(ppO3c, ppP4c)%p(1)=+1
+  D3FLUX_MATRIX(ppO3c, ppP1c)%p(1)=+1
+  D3FLUX_MATRIX(ppO3c, ppP3c)%p(1)=+1
+  
+  ! rcalCARc = O5c <- O3c
+  D3FLUX_MATRIX(ppO3c, ppO5c)%p(1)=+5
+  
+  ! remPBAn = (N4n<-B.n)
+  D3FLUX_MATRIX(ppB1n, ppN4n)%p(2)=+15
+  
+  ! exPPYs = (P.s->R6s)
+  D3FLUX_MATRIX(ppP1s, ppR6s)%p(1)=+10
+  
+  ! resZOOc = Z.c -> O3c
+  D3FLUX_MATRIX(ppZ3c, ppO3c)%p(1)=+4
+  D3FLUX_MATRIX(ppZ5c, ppO3c)%p(1)=+4
+  D3FLUX_MATRIX(ppZ4c, ppO3c)%p(1)=+4
+  D3FLUX_MATRIX(ppZ6c, ppO3c)%p(1)=+4
+  
+  ! ruPPYp = P.p <- N1p
+  D3FLUX_MATRIX(ppN1p, ppP1p)%p(1)=+7
+  D3FLUX_MATRIX(ppN1p, ppP3p)%p(1)=+7
+  D3FLUX_MATRIX(ppN1p, ppP2p)%p(1)=+7
+  D3FLUX_MATRIX(ppN1p, ppP4p)%p(1)=+7
+  
+  ! exPPYc = (P.c->R1c+R2c+R3c+R6c)
+  D3FLUX_MATRIX(ppP2c, ppR1c)%p(1)=+9
+  D3FLUX_MATRIX(ppP2c, ppR2c)%p(1)=+9
+  D3FLUX_MATRIX(ppP2c, ppR3c)%p(1)=+9
+  D3FLUX_MATRIX(ppP2c, ppR6c)%p(1)=+9
+  D3FLUX_MATRIX(ppP4c, ppR1c)%p(1)=+9
+  D3FLUX_MATRIX(ppP4c, ppR2c)%p(1)=+9
+  D3FLUX_MATRIX(ppP4c, ppR3c)%p(1)=+9
+  D3FLUX_MATRIX(ppP4c, ppR6c)%p(1)=+9
+  D3FLUX_MATRIX(ppP1c, ppR1c)%p(1)=+9
+  D3FLUX_MATRIX(ppP1c, ppR2c)%p(1)=+9
+  D3FLUX_MATRIX(ppP1c, ppR3c)%p(1)=+9
+  D3FLUX_MATRIX(ppP1c, ppR6c)%p(1)=+9
+  D3FLUX_MATRIX(ppP3c, ppR1c)%p(1)=+9
+  D3FLUX_MATRIX(ppP3c, ppR2c)%p(1)=+9
+  D3FLUX_MATRIX(ppP3c, ppR3c)%p(1)=+9
+  D3FLUX_MATRIX(ppP3c, ppR6c)%p(1)=+9
+  
+  ! remZOOp = (N1p<-B.p+Z.p)
+  D3FLUX_MATRIX(ppB1p, ppN1p)%p(1)=+14
+  D3FLUX_MATRIX(ppZ3p, ppN1p)%p(1)=+14
+  D3FLUX_MATRIX(ppZ4p, ppN1p)%p(1)=+14
+  D3FLUX_MATRIX(ppZ6p, ppN1p)%p(1)=+14
+  D3FLUX_MATRIX(ppZ5p, ppN1p)%p(1)=+14
   
 
 

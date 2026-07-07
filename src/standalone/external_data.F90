@@ -1,6 +1,6 @@
 !-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-! MODEL  BFM - Biogeochemical Flux Model
-!-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+! MODEL BFM - Biogeochemical Flux Model
+!-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-                                                                                                                                                                   use global_mem, only: RLEN,ZERO                                                                                                                             use constants,  only: SEC_PER_DAY                                                                                                                           use mem,        only: jbotR6c,jbotR6n,jbotR6p,jbotR6s, &                                                                                                                          N1p,N3n,N4n,N5s,                 &                                                                                                                          R6c,R6n,R6p,R6s,O2o                                                                                                                   use mem,        only: iiC,iiN,iiP,iiS                                                                                                                       use time,       only: julianday, secondsofday, time_diff, &                                                                                                                       julian_day,calendar_date,dayofyear                                                                                                    use envforcing                                                                                                                                              use api_bfm                                                                                                                                                                                                                                                                                                             IMPLICIT NONE                                                                                                                                                                                                                                                                                                          !-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=                                                                               ! Local Variables                                                                                                                                           !-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=                                                                                integer,parameter         :: NOBS=4                                                                                                                         integer                   :: yy,mm,dd,hh,min,sec                                                                                                            real(RLEN)                :: t,alpha                                                                                                                        real(RLEN), save          :: dt                                                                                                                             integer, save             :: data_jul1,data_secs1                                                                                                           integer, save             :: data_jul2=0,data_secs2=0                                                                                                       real(RLEN), save          :: obs1(NOBS),obs2(NOBS)=0.                                                                                                       integer                   :: rc,dyear,jh,jn                                                                                                                 real(RLEN)                :: dfrac,jday                                                                                                                     character(len=19)         :: datestr                                                                                                                        character(len=8)          :: timestr                                                                                                                        real(RLEN)                :: v1, v2, v3, v4                                                                                                                !-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=                                                                                                                                                                                                                                            if (use_external_data) then                                                                                                                              #ifdef DEBUG                                                                                                                                                      LEVEL1 'external_data (jul,sec): ',julianday,secondsofday                                                                                                   call  calendar_date(real(julianday,RLEN),yy,mm,dd,jh,jn) !-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 !
 ! ROUTINE: external_data
 !
@@ -52,6 +52,9 @@
    real(RLEN), save          :: obs1(NOBS),obs2(NOBS)=0.
    integer                   :: rc,dyear,jh,jn
    real(RLEN)                :: dfrac,jday
+   character(len=19)         :: datestr
+   character(len=8)          :: timestr
+   real(RLEN)                :: v1, v2, v3, v4
   !-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
    if (use_external_data) then
@@ -71,7 +74,20 @@
             data_jul1 = data_jul2
             data_secs1 = data_secs2
             obs1 = obs2
-            call read_obs(unit_data,yy,mm,dd,hh,min,sec,NOBS,obs2,rc)
+            read(unit_data,*,iostat=rc) datestr,timestr, v1, v2, v3, v4
+            read(datestr(1:4),*) yy
+            read(datestr(6:7),*) mm
+            read(datestr(9:10),*) dd
+
+            read(timestr(1:2),*) hh
+            read(timestr(4:5),*) min
+            read(timestr(7:8),*) sec
+
+            obs2(1) = v1
+            obs2(2) = v2
+            obs2(3) = v3
+            obs2(4) = v4
+  
             call julian_day(yy,mm,dd,0,0,jday)
             data_jul2 = int(jday)
             data_secs2 = hh*3600 + min*60 + sec
@@ -83,13 +99,13 @@
       !  Do the time interpolation
       t  = time_diff(julianday,secondsofday,data_jul1,data_secs1)
       alpha = (obs2(1)-obs1(1))/dt
-      N1p = obs1(1) + t*alpha
+      N3n = obs1(1) + t*alpha !NO3
       alpha = (obs2(2)-obs1(2))/dt
-      N3n = obs1(2) + t*alpha
+      N1p = obs1(2) + t*alpha !PO4
       alpha = (obs2(3)-obs1(3))/dt
-      N4n = obs1(3) + t*alpha
+      N4n = obs1(3) + t*alpha !NH4
       alpha = (obs2(4)-obs1(4))/dt
-      N5s = obs1(4) + t*alpha
+      N5s = obs1(4) + t*alpha !Si
    end if
 
    ! Bottom deposition (must be negative)
