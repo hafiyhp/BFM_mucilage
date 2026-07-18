@@ -65,11 +65,11 @@
   ! Local Variables
   !-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   ! --------- to be edited by user --------------------------------------
-   integer,parameter         :: NOBS=2 ! no of coulumns
+   integer,parameter         :: NOBS=4 ! no of columns
    integer,parameter         :: iETW=1 ! column for temperature [degC]
-   !integer,parameter         :: iESW=2 ! column for salinity [-]
+   integer,parameter         :: iESW=3 ! column for salinity [-]
    integer,parameter         :: iWND=2 ! column for wind speed [m/s]
-   !integer,parameter         :: iEIR=4 ! column for irradiance [W/m2]
+   integer,parameter         :: iEIR=4 ! column for irradiance [W/m2]
    ! --------- end part edited by user -----------------------------------
    integer                   :: yy,mm,dd,hh,min,ss,dyear
    real(RLEN)                :: t,alpha,jday
@@ -107,6 +107,10 @@
          data_secs1 = data_secs2
          obs1 = obs2
          call read_obs(unit_forcing,yy,mm,dd,hh,min,ss,NOBS,obs2,ierr)
+         write(*,*) 'obs1 =', obs1
+         write(*,*) 'obs2 =', obs2
+         write(*,*) 'date2 =', yy, mm, dd, hh, min, ss
+
          select case (ierr)
            case (READ_ERROR)  
               call bfm_error('external_forcing','Error reading forcing data')
@@ -132,29 +136,27 @@
 !-----------------------------------------------------------------------
    alpha = (obs2(iETW)-obs1(iETW))/dt
    ETW(:) = obs1(iETW) + t*alpha
-   !alpha = (obs2(iESW)-obs1(iESW))/dt
-   !ESW(:) = obs1(iESW) + t*alpha
+   alpha = (obs2(iESW)-obs1(iESW))/dt
+   ESW(:) = obs1(iESW) + t*alpha
    alpha = (obs2(iWND)-obs1(iWND))/dt
    EWIND(:) = obs1(iWND) + t*alpha
    ! Irradiance is assumed to be at the top of the box
    ! convert from irradiance (W/m2) to PAR in uE/m2/s
-   !alpha = (obs2(iEIR)-obs1(iEIR))/dt
-   !select case (ChlAttenFlag)
-      !case (1) ! Broadband
-         !EIR(:) = (obs1(iEIR) + t*alpha) * p_PAR / E2W 
-      !case (2) ! RGB
-         !EIR(:) = p_PARRGB * (obs1(iEIR) + t*alpha + p_small) / E2W
-         !EIRR(:) = EIR(:) * exp ( -R_eps(:) )
-         !EIRG(:) = EIR(:) * exp ( -G_eps(:) )
-         !EIRB(:) = EIR(:) * exp ( -B_eps(:) )
-         !EIR(:) = EIRB(:) + EIRG(:) + EIRR(:)
+   alpha = (obs2(iEIR)-obs1(iEIR))/dt
+   select case (ChlAttenFlag)
+      case (1) ! Broadband
+         EIR(:) = (obs1(iEIR) + t*alpha) * p_PAR / E2W 
+      case (2) ! RGB
+         EIR(:) = p_PARRGB * (obs1(iEIR) + t*alpha + p_small) / E2W
+         EIRR(:) = EIR(:) * exp ( -R_eps(:) )
+         EIRG(:) = EIR(:) * exp ( -G_eps(:) )
+         EIRB(:) = EIR(:) * exp ( -B_eps(:) )
+         EIR(:) = EIRB(:) + EIRG(:) + EIRR(:)
          ! weighted broadband diffuse attenuation coefficient for diagnostics
-         !xEPS(:) = (EIRB(:)*B_eps(:) + EIRG(:)*G_eps(:) + EIRR(:)*R_eps(:))/EIR(:)
-      !case default
-         !call BFM_ERROR("external_forcing","Bad value for ChlAttenFlag.")
-   !end select
-
-   !EIR(:) = (obs1(iEIR) + t*alpha)*p_PAR/E2W 
+         xEPS(:) = (EIRB(:)*B_eps(:) + EIRG(:)*G_eps(:) + EIRR(:)*R_eps(:))/EIR(:)
+      case default
+         call BFM_ERROR("external_forcing","Bad value for ChlAttenFlag.")
+   end select 
 
    ! Compute day length: leap years not considered (small error)
    call dayofyear(julianday,dyear)
